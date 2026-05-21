@@ -1,2 +1,5 @@
 mountpoints:
-  /: https://YOUR_TENANT.sharepoint.com/sites/AusPostNewsroom/Shared Documents/newsroom
+  /: 
+url: "https://main--newsroom--kapilmalik84.aem.live"
+type: "markup"
+suffix: ".html"
