@@ -1,5 +1,2 @@
 mountpoints:
-  /: 
-url: "https://main--newsroom--kapilmalik84.aem.live"
-type: "markup"
-suffix: ".html"
+  /: https://drive.google.com/drive/folders/1WY7xXSe5HkeSjAOlfJkmPshUwkZXslho
