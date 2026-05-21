@@ -57,6 +57,10 @@ export default async function decorate(block) {
 
   let currentIndex = 0;
 
+  const counter = document.createElement('span');
+  counter.className = 'gallery-counter';
+  counter.textContent = `1 / ${slides.length}`;
+
   function goTo(index) {
     slides[currentIndex].classList.remove('active');
     currentIndex = (index + slides.length) % slides.length;
@@ -82,10 +86,6 @@ export default async function decorate(block) {
   nextBtn.setAttribute('aria-label', 'Next image');
   nextBtn.textContent = '›';
   nextBtn.addEventListener('click', () => goTo(currentIndex + 1));
-
-  const counter = document.createElement('span');
-  counter.className = 'gallery-counter';
-  counter.textContent = `1 / ${slides.length}`;
 
   controls.append(prevBtn, counter, nextBtn);
 

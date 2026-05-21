@@ -1,17 +1,15 @@
 import {
   buildBlock,
-  decorateBlock,
   decorateBlocks,
-  decorateButtons,
   decorateIcons,
   decorateSections,
   decorateTemplateAndTheme,
   getMetadata,
   loadBlock,
-  loadBlocks,
   loadCSS,
   loadFooter,
   loadHeader,
+  loadSections,
   sampleRUM,
   waitForFirstImage,
 } from './aem.js';
@@ -80,18 +78,18 @@ function buildHeroBlock(main) {
  */
 function loadAnalytics() {
   // Adobe DTM/Launch is loaded via head.html
-  // Additional tracking setup can go here
+  /* eslint-disable no-underscore-dangle */
   if (window._satellite) {
     window._satellite.pageBottom();
   }
+  /* eslint-enable no-underscore-dangle */
 }
 
 /**
  * Decorates the main element.
  * @param {Element} main the main element
  */
-export function decorateMain(main) {
-  decorateButtons(main);
+export default function decorateMain(main) {
   decorateIcons(main);
   buildHeroBlock(main);
   decorateSections(main);
@@ -121,7 +119,7 @@ async function loadEager(doc) {
  */
 async function loadLazy(doc) {
   const main = doc.querySelector('main');
-  await loadBlocks(main);
+  await loadSections(main);
 
   const { hash } = window.location;
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
