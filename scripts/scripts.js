@@ -11,6 +11,7 @@ import {
   loadHeader,
   loadSections,
   sampleRUM,
+  setup,
   waitForFirstImage,
 } from './aem.js';
 
@@ -102,6 +103,7 @@ export default function decorateMain(main) {
  * @param {Document} doc the document
  */
 async function loadEager(doc) {
+  setup();
   document.documentElement.lang = 'en';
   decorateTemplateAndTheme();
   const main = doc.querySelector('main');
